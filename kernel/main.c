@@ -1,12 +1,11 @@
 #include <stdint.h>
 #include <stddef.h>
 
-// Multiboot header so GRUB can load this kernel
 __attribute__((section(".multiboot")))
 const uint32_t multiboot_header[] = {
-    0x1BADB002,              // magic
-    0x00000003,              // flags: align modules + memory info
-    -(0x1BADB002 + 0x00000003) // checksum
+    0x1BADB002,
+    0x00000003,
+    -(0x1BADB002 + 0x00000003)
 };
 
 #define VGA_WIDTH 80
