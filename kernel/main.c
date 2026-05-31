@@ -20,9 +20,20 @@ static uint16_t vga_entry(char c, uint8_t color) {
     return (uint16_t)c | ((uint16_t)color << 8);
 }
 
+// Delcare a function called `clear_screen`
+// `void` means this function returns nothing.
+// `static` means this function is only visable
+// inside this `.c` file.
+
 static void clear_screen(void) {
+    // We loop over every row of the screen.
+    // `y` goes from 0 - 24.
     for (size_t y = 0; y < VGA_HEIGHT; y++) {
+        // Iner loops; loops over every COLUMN of the
+        // current row.
         for (size_t x = 0; x < VGA_WIDTH; x++) {
+            // This just writes an empty blank space
+            // into the current screen cell.
             VGA_MEMORY[y * VGA_WIDTH + x] = vga_entry(' ', color);
         }
     }
