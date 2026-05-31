@@ -16,6 +16,9 @@ static size_t row = 0;
 static size_t column = 0;
 static uint8_t color = 0x0F;
 
+// Creates a VGA cell that essentially,
+// is a space that looks empty. Like a space
+// character.
 static uint16_t vga_entry(char c, uint8_t color) {
     return (uint16_t)c | ((uint16_t)color << 8);
 }
